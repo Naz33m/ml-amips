@@ -218,3 +218,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local environments and generated artifacts (session/workspace)
+.venv-wsl/
+checkpoints/
+data/

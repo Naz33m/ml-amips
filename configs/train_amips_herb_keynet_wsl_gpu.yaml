@@ -1,0 +1,44 @@
+seed: 0
+
+dataloader:
+  trn_batch_size: 256
+  val_batch_size: 128
+  num_trn_steps: 500
+  num_val_steps: 1
+  eval_every: 100
+
+loss:
+  score_weight: 0.01
+  target_weight: 1.0
+
+checkpoint:
+  dir: checkpoints/amips/herb_keynet_wsl_gpu
+  save_every: 100
+  max_to_keep: 3
+
+model:
+  model: keynet
+  ema_decay: 0.9684910757595268
+  depth: 4
+  parameters_fraction: 0.05
+  use_bias: true
+  wx_inject: 4
+  multiplier: 1.0
+  keynet_resnet: false
+  act_fn: soft_leaky_relu
+  act_fn_negative_slope: 0.1
+  act_fn_beta: 20.0
+
+optimizer:
+  init_value: 0.0
+  peak_value: 0.001
+  end_value: 0.0001
+  warmup_steps: 50
+  grad_clip: 1.0
+
+faiss:
+  n_clusters: 1
+  natural_nprobe: 1
+  projected_nprobe: 1
+  k_values: [1, 5, 10]
+  num_faiss_steps: 1
